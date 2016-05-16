@@ -1,5 +1,45 @@
 <html>
 <head>
+  <script>
+    var words = "The sky above the port was the color of television, tuned to a dead channel. All this happened, more or less. I had the story, bit by bit, from various people, and, as generally happens in such cases, each time it was a different story. It was a pleasure to burn.";
+    function generateIpsum() {
+      for (var i = 0, paragraph=''; paragraph.length <= 1000; i++ ) {
+         paragraph += getSentence();
+        
+      }
+    return paragraph;
+      
+    }
+
+  //random word
+  function getWord(arrayWords){
+     var theWord = arrayWords[Math.floor(Math.random() * arrayWords.length)];
+     if (theWord === 'i') {
+       theWord = 'I';
+     }
+  	return theWord;
+  }
+  
+  //random sentence
+  function getSentence() {
+  var wordArray = words.toLowerCase().replace(/[.,]/g, '').split(' '),
+      sentence = '';
+      
+      for (var i = Math.round((Math.random() * (10 - 1)) + 1); i >= 0; i -= 1) {
+          sentence += getWord(wordArray) + ' ';
+      }
+      
+      sentence = sentence.replace(/ $/, '.&nbsp;');
+      
+      return capitalize(sentence);
+  }
+  
+  //capitalize our sentences
+  function capitalize(theSentence){
+  	return theSentence.substring(0,1).toUpperCase() + theSentence.substring(1, theSentence.length);
+  }
+  document.getElementById('fill').innerHTML = generateIpsum();
+  </script>
 </head>
 <body>
 <h1>Your program produced:</h1>
