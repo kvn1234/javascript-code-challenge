@@ -4,6 +4,8 @@
   <script>
   $(document).ready(function() {
     var words = "The sky above the port was the color of television, tuned to a dead channel. All this happened, more or less. I had the story, bit by bit, from various people, and, as generally happens in such cases, each time it was a different story. It was a pleasure to burn.";
+    var wordArray = words.toLowerCase().replace(/[.,]/g, '').split(' ');
+    
     function generateIpsum() {
       for (var i = 0, paragraph=''; paragraph.length <= 1000; i++ ) {
          paragraph += getSentence();
@@ -24,8 +26,7 @@
   
   //random sentence
   function getSentence() {
-  var wordArray = words.toLowerCase().replace(/[.,]/g, '').split(' '),
-      sentence = '';
+      var sentence = '';
       
       for (var i = Math.round((Math.random() * (10 - 1)) + 1); i >= 0; i -= 1) {
           sentence += getWord(wordArray) + ' ';
