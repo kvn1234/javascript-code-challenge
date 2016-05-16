@@ -1,6 +1,8 @@
 <html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script>
+  $(document).ready(function() {
     var words = "The sky above the port was the color of television, tuned to a dead channel. All this happened, more or less. I had the story, bit by bit, from various people, and, as generally happens in such cases, each time it was a different story. It was a pleasure to burn.";
     function generateIpsum() {
       for (var i = 0, paragraph=''; paragraph.length <= 1000; i++ ) {
@@ -39,6 +41,7 @@
   	return theSentence.substring(0,1).toUpperCase() + theSentence.substring(1, theSentence.length);
   }
   document.getElementById('fill').innerHTML = generateIpsum();
+  });
   </script>
 </head>
 <body>
